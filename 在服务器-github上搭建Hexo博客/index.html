@@ -62,7 +62,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.jpg?v=5.1.4" color="#222">
 
 
 
@@ -88,7 +88,7 @@
 <meta property="og:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页，更多介绍请访问 Hexo官方网站。 本篇文章的目的是帮助新手快速建立自己的博客，并发布到github.io或自己的服务器上。 配置本地服务器​    让我们一步一步来。 配置本地环境安装node.js鉴于绝大多数人本地环境使用的都是Windows，本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://xtstarry.top/images/article/02.jpg">
-<meta property="og:updated_time" content="2018-07-25T09:38:06.533Z">
+<meta property="og:updated_time" content="2018-07-25T12:23:28.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在服务器&#x2F;GitHub上搭建Hexo博客">
 <meta name="twitter:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页，更多介绍请访问 Hexo官方网站。 本篇文章的目的是帮助新手快速建立自己的博客，并发布到github.io或自己的服务器上。 配置本地服务器​    让我们一步一步来。 配置本地环境安装node.js鉴于绝大多数人本地环境使用的都是Windows，本">
@@ -102,7 +102,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -193,12 +193,52 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
           </a>
         </li>
       
@@ -327,7 +367,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="/images/article/02.jpg" rel="gallery_cjk0y8qrf0000wwu7hwya14lw"
+                 href="/images/article/02.jpg" rel="gallery_cjk16kxko0000l0u7o8c72821"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="/images/article/02.jpg" itemprop="contentUrl"/>
               </a>
@@ -347,7 +387,7 @@
 <p>访问<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">node.js官方网站</a>，下载推荐版以后安装即可。</p>
 <h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>访问<a href="https://git-scm.com/" target="_blank" rel="noopener">git官方网站</a>，下载适合自己Windows的版本，安装即可。当然如果你觉得官网下载速度过慢的话，<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">也可以访问这里</a>，这里收录了git国内下载的源。</p>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>git的终端（开始菜单中打开git/git bash），键入以下命令，等待片刻即可安装完成。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>若命令无法执行，则按照指示安装需要的程序即可。</p>
 <h2 id="建立本地站点"><a href="#建立本地站点" class="headerlink" title="建立本地站点"></a>建立本地站点</h2><h3 id="建立本地文件夹"><a href="#建立本地文件夹" class="headerlink" title="建立本地文件夹"></a>建立本地文件夹</h3><p>建立一个本地文件夹用于存放博客，我使用的是<strong>F:\blog</strong></p>
 <h3 id="初始化本地文件夹"><a href="#初始化本地文件夹" class="headerlink" title="初始化本地文件夹"></a>初始化本地文件夹</h3><p>由于默认NPM镜像速度太慢，我们可以先切换到淘宝的源：</p>
@@ -555,6 +595,11 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODM0OC8xNDg3Ng=="></div>
+    </div>
+
+  
 
 
 
@@ -639,8 +684,30 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/XTStarry" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xtstarry@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
           
 
           
@@ -669,6 +736,13 @@
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -716,11 +790,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -839,6 +908,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
