@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Game Framework学习笔记(2):初识UI]]></title>
+    <title><![CDATA[Game Framework学习笔记(3):初识UI]]></title>
     <url>%2FGameFramework%E5%AD%A6%E4%B9%A0%EF%BC%883%EF%BC%89%2F</url>
     <content type="text"><![CDATA[脱离Game Framework加载一个简单的UI想必大家都应该了解，那么如何在Game Framework框架下使用呢？ Game Framework加载UI的方式，说白了就是使用UI Component统一加载、管理UI的Prefab，避免大量UI分散在场景中，管理困难的情况。 我们先建立一个UI预设体。 打开我们之前的项目，随便先新建一个UI。我这边将UI改名为HelloWorld。它只是在屏幕上打印出Hello，World！，没有做其他的事。 接着添加这个UI的UI逻辑。Game Framework要是检测不到UI的逻辑脚本就会报错。 创建一个脚本，我创建的名称是UI_HelloWorld 12345using UnityGameFramework.Runtime;public class UI_HelloWorld : UIFormLogic&#123;&#125; 因为我们单单只是调用一下它，不需要它有什么实质的功能，所以类里面什么都不用写。 接着将这个脚本挂载到我们刚刚创建的UI下，再将UI保存成prefab。 接下来我们要做的，就是在ProcedureMain流程中将这个UI加载出来。 我们首先要创建一个UI分组来存放这个UI。 点开Example场景中的GameFramework，找到其中的UI子对象。 将UI Component的UI Groups下的Size改为1，接着再给新出现的Element 0的Name随便起一个，这里我起的是DefaultGroup。 这样我们一会就能把UI调到这个组里了。 打开ProcedureMain脚本，在OnEnter()中添加几行代码，让它在进入时加载UI： 别忘了添加UnityGameFramework.Runtime程序集 12345678910111213141516171819202122232425262728293031323334353637383940414243444546using GameFramework;using GameFramework.Procedure;using UnityGameFramework.Runtime; // 别忘了这个using ProcedureOwner = GameFramework.Fsm.IFsm&lt;GameFramework.Procedure.IProcedureManager&gt;;namespace Game&#123; public class ProcedureMain : ProcedureBase &#123; // 游戏初始化时执行。 protected override void OnInit(ProcedureOwner procedureOwner) &#123; base.OnInit(procedureOwner); &#125; // 每次进入这个流程时执行。 protected override void OnEnter(ProcedureOwner procedureOwner) &#123; base.OnEnter(procedureOwner); Log.Debug("进入ProcedureMain！"); // 加载框架UI组件 UIComponent UI = GameEntry.GetComponent&lt;UIComponent&gt;(); // 加载UI UI.OpenUIForm("Assets/Example/HelloWorld.prefab","DefaultGroup"); &#125; // 每次轮询执行。 protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds) &#123; base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds); &#125; // 每次离开这个流程时执行。 protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown) &#123; base.OnLeave(procedureOwner, isShutdown); &#125; // 游戏退出时执行。 protected override void OnDestroy(ProcedureOwner procedureOwner) &#123; base.OnDestroy(procedureOwner); &#125; &#125;&#125; 保存完毕后，我们就能看看效果啦。回到Unity，点击play按钮。 UI被我们加载了出来。 一步步点开UI Component，我们可以看到UI确实被加载在了这里。 这一节就到这里，下一篇文章再见。]]></content>
       <categories>
@@ -9,8 +9,8 @@
         <category>Game Framework</category>
       </categories>
       <tags>
-        <tag>Unity3D</tag>
         <tag>Game Framework</tag>
+        <tag>Unity3D</tag>
       </tags>
   </entry>
   <entry>
@@ -22,8 +22,8 @@
         <category>Game Framework</category>
       </categories>
       <tags>
-        <tag>Unity3D</tag>
         <tag>Game Framework</tag>
+        <tag>Unity3D</tag>
       </tags>
   </entry>
   <entry>
@@ -35,8 +35,8 @@
         <category>Game Framework</category>
       </categories>
       <tags>
-        <tag>Unity3D</tag>
         <tag>Game Framework</tag>
+        <tag>Unity3D</tag>
       </tags>
   </entry>
   <entry>
